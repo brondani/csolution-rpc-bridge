@@ -1,0 +1,23 @@
+{
+  "name": "csolution-rpc",
+  "version": "0.0.1",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "csolution rpc server bridge",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1"
+  }
+}
