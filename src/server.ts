@@ -8,6 +8,13 @@ const port = 3000;
 
 function launch(): Boolean {
   child = spawn('csolution', ['rpc'], { cwd: './' });
+
+  child.on('error', (err) => {
+      console.error(err.message);
+      child = undefined;
+      return false;
+  });
+
   if (!child || !child.pid || !child.stdout || !child.stdin) {
       console.error(`csolution rpc launch failed`);
       return false;
@@ -45,7 +52,7 @@ app.post('/rpc/*method', async (req, res) => {
   console.log('request:', JSON.stringify(request));
 
   if (!child && !launch()) {
-    res.status(400).send('csolution rpc not found');
+    res.status(404).send('csolution rpc not found');
     return;
   }
 
